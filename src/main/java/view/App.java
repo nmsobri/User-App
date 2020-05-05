@@ -123,7 +123,6 @@ public class App {
         this.frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                System.out.println("Window closing");
                 App.this.frame.dispose();
                 System.gc();
             }

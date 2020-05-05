@@ -130,7 +130,7 @@ public class PersonTableModel extends AbstractTableModel {
                 p.setTaxID((String) val);
                 break;
             case 7:
-                p.setGender((String) val);
+                p.setGender((Gender) val);
                 break;
             default:
                 break;
@@ -139,7 +139,6 @@ public class PersonTableModel extends AbstractTableModel {
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-
         switch (columnIndex) {
             case 0:
                 return String.class;
@@ -156,7 +155,7 @@ public class PersonTableModel extends AbstractTableModel {
             case 6:
                 return String.class;
             case 7:
-                return String.class;
+                return Gender.class;
             default:
                 return null;
         }

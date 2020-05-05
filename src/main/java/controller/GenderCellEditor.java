@@ -1,16 +1,18 @@
 package controller;
 
-import model.Employee;
+import model.Gender;
 
 import javax.swing.*;
 import javax.swing.table.TableCellEditor;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class EmployeeCellEditor extends AbstractCellEditor implements TableCellEditor {
+public class GenderCellEditor extends AbstractCellEditor implements TableCellEditor {
     private JComboBox comboBox;
 
-    public EmployeeCellEditor() {
-        this.comboBox = new JComboBox(Employee.values());
+    public GenderCellEditor() {
+        this.comboBox = new JComboBox(Gender.values());
     }
 
     @Override

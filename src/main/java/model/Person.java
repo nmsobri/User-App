@@ -10,6 +10,7 @@ public class Person implements Serializable {
     private Employee employment;
     private boolean isUsCitizen;
     private String taxID;
+    private Gender gender;
 
     public void setId(int id) {
         this.id = id;
@@ -39,11 +40,9 @@ public class Person implements Serializable {
         this.taxID = taxID;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
-
-    private String gender;
 
     public int getID() {
         return id;
@@ -73,11 +72,11 @@ public class Person implements Serializable {
         return taxID;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public Person(int id, String name, String occupation, String age, Employee employment, boolean isUsCitizen, String taxID, String gender) {
+    public Person(int id, String name, String occupation, String age, Employee employment, boolean isUsCitizen, String taxID, Gender gender) {
         this.id = id;
         this.name = name;
         this.occupation = occupation;

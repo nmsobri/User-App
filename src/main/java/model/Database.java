@@ -104,16 +104,14 @@ public class Database {
                 String name = resultSet.getString(2);
                 String occupation = resultSet.getString(3);
                 String age = resultSet.getString(4);
-                Employee employment = Enum.valueOf(Employee.class, resultSet.getString(5));
+                Employee employment = Employee.valueOf(resultSet.getString(5));
                 boolean isUsCitizen = resultSet.getBoolean(6);
                 String taxID = resultSet.getString(7);
-                String gender = resultSet.getString(8);
+                Gender gender = Gender.valueOf(resultSet.getString(8));
 
                 Person p = new Person(id, name, occupation, age, employment, isUsCitizen, taxID, gender);
                 this.persons.add(p);
             }
-
-            System.out.println(this.persons);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -130,7 +128,6 @@ public class Database {
                 resultSet.next();
 
                 int count = resultSet.getInt(1);
-                System.out.println(count);
 
                 if (count == 1) {
                     PreparedStatement updateStatement = this.connection.prepareStatement("UPDATE users SET name=?, occupation=?, age=?, employment=?, is_us_citizen=?, tax_id=?, gender=? WHERE id=?");
@@ -141,7 +138,7 @@ public class Database {
                     updateStatement.setString(4, p.getEmployment().name());
                     updateStatement.setBoolean(5, p.isUsCitizen());
                     updateStatement.setString(6, p.getTaxID());
-                    updateStatement.setString(7, p.getGender());
+                    updateStatement.setString(7, p.getGender().name());
                     updateStatement.setInt(8, p.getID());
 
                     updateStatement.execute();
@@ -154,7 +151,7 @@ public class Database {
                     insertStatement.setString(4, p.getEmployment().name());
                     insertStatement.setBoolean(5, p.isUsCitizen());
                     insertStatement.setString(6, p.getTaxID());
-                    insertStatement.setString(7, p.getGender());
+                    insertStatement.setString(7, p.getGender().name());
 
                     insertStatement.execute();
                 }

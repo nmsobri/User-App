@@ -3,6 +3,7 @@ package view;
 import controller.FormListener;
 import model.Employee;
 import model.FormModel;
+import model.Gender;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,10 +61,10 @@ public class FormPanel extends AppPanel {
         this.taxIDInput = new JTextField(10);
         this.genderLabel = new JLabel("Gender:");
 
-        this.maleInput = new JRadioButton("Male", true);
+        this.maleInput = new JRadioButton(Gender.male.toString(), true);
         this.maleInput.setActionCommand("male");
 
-        this.femaleInput = new JRadioButton("Female");
+        this.femaleInput = new JRadioButton(Gender.female.toString());
         this.femaleInput.setActionCommand("female");
 
         this.buttonGroup = new ButtonGroup();
@@ -98,7 +99,7 @@ public class FormPanel extends AppPanel {
             Employee employment = (Employee) this.employmentInput.getSelectedItem();
             boolean isUsCitizen = this.isUsCitizenInput.isSelected();
             String taxID = this.taxIDInput.getText();
-            String gender = this.buttonGroup.getSelection().getActionCommand();
+            Gender gender = Gender.valueOf(this.buttonGroup.getSelection().getActionCommand());
 
             FormModel fm = new FormModel(name, occupation, age, employment, isUsCitizen, taxID, gender);
             this.listener.execute(fm);

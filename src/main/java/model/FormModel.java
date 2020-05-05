@@ -8,7 +8,7 @@ public class FormModel {
     private Employee employment;
     private boolean isUsCitizen;
     private String taxID;
-    private String gender;
+    private Gender gender;
 
     public static int getID() {
         return ID;
@@ -38,11 +38,11 @@ public class FormModel {
         return taxID;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public FormModel(String name, String occupation, String age, Employee employment, boolean isUsCitizen, String taxID, String gender) {
+    public FormModel(String name, String occupation, String age, Employee employment, boolean isUsCitizen, String taxID, Gender gender) {
         ID++;
         this.name = name;
         this.occupation = occupation;

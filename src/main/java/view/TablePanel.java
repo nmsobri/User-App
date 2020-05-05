@@ -1,10 +1,8 @@
 package view;
 
 import controller.EmployeeCellEditor;
-import model.Database;
-import model.Employee;
-import model.Person;
-import model.PersonTableModel;
+import controller.GenderCellEditor;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,6 +35,7 @@ public class TablePanel extends JPanel {
 
         //Change custom editor for this column
         this.table.setDefaultEditor(Employee.class, new EmployeeCellEditor());
+        this.table.setDefaultEditor(Gender.class, new GenderCellEditor());
         this.table.setRowHeight(25);
 
         this.popupMenu = new JPopupMenu();
